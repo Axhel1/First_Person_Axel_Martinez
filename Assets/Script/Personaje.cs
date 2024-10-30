@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,15 @@ public class Personaje : MonoBehaviour
 
     [SerializeField] float horizontalMove;
     [SerializeField] float verticalMove;
+    [SerializeField] float gravedad;
+    [SerializeField] float jumpVelocidad;
 
     [SerializeField] float targetAngulo;
     [SerializeField] float angulo;
     public float smoothTime = 0.1f;
     float smoothVelocity;
     Vector3 moverPlayer;
+    Vector3 velocityGravedad;
 
     CharacterController player;
 
@@ -35,7 +39,7 @@ public class Personaje : MonoBehaviour
     {
         MoverYrotar();
 
-
+        Saltar();
 
         if (moverPlayer.magnitude >= 0.1f)
         {
@@ -43,7 +47,7 @@ public class Personaje : MonoBehaviour
             targetAngulo = Mathf.Atan2(moverPlayer.x, moverPlayer.z) * Mathf.Rad2Deg;
             angulo = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngulo, ref smoothVelocity, smoothTime);
 
-            transform.rotation = Quaternion.Euler(0f, angulo, 0f);
+            transform.rotation = Quaternion.Euler(0f, Camera.main.transform.eulerAngles.y, 0f);
 
 
             Control.Move(moverPlayer * playerSpeed * Time.deltaTime);
@@ -56,6 +60,15 @@ public class Personaje : MonoBehaviour
         }
 
 
+    }
+
+    private void Saltar()
+    {
+        if(Input.GetButton("Jump")){
+
+            velocityGravedad.y = Mathf.Sqrt(jumpVelocidad * -2 * gravedad);
+
+        }    
     }
 
     void MoverYrotar() {

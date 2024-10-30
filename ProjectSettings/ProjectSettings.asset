@@ -838,8 +838,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: First_Person_Axel_Martinez
-  metroPackageVersion: 
+  metroPackageName: FirstPersonAxelMartinez
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -847,7 +847,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: First_Person_Axel_Martinez
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: First_Person_Axel_Martinez
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

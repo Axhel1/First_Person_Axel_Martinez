@@ -42,7 +42,12 @@ public class Personaje : MonoBehaviour
 
         IsGround();
 
-        //Saltar();
+        if (grounded && velocityGravedad.y < 0)
+        {
+            velocityGravedad.y = 0f;  
+        }
+
+        Saltar();
 
         if (moverPlayer.magnitude >= 0.1f)
         {
@@ -64,7 +69,7 @@ public class Personaje : MonoBehaviour
             anim.SetBool("IsWalk", false);
         }
 
-        velocityGravedad.y += gravedad + Time.deltaTime;
+        velocityGravedad.y += gravedad * Time.deltaTime;
         Control.Move(velocityGravedad * Time.deltaTime);
 
 
@@ -72,7 +77,7 @@ public class Personaje : MonoBehaviour
 
     private void Saltar()
     {
-        if(Input.GetButton("Jump")){
+        if(Input.GetButton("Jump") && grounded){
 
             velocityGravedad.y = Mathf.Sqrt(jumpVelocidad * -2 * gravedad);
 
@@ -92,18 +97,19 @@ public class Personaje : MonoBehaviour
 
         {
             Debug.DrawRay(transform.position, Vector3.down * 0.6f, Color.green);
-            if (Physics.Raycast(transform.position, Vector3.down, 0.6f))
+            if (Physics.Raycast(transform.position, Vector3.down, 0.1f))
             {
 
                 grounded = true;
-                Debug.Log("hola");
+                Debug.Log(grounded);
 
             }
             else
             {
 
                 grounded = false;
-                Debug.Log("caigo");
+                
+                Debug.Log(grounded);
             }
 
 

@@ -8,9 +8,9 @@ public class Disparo : MonoBehaviour
     public Transform spawn;
     public GameObject bala;
 
-    public float fuerza =1500f;
-    public float rango = 0.5f;
-    private float tiempoRango =0;
+    [SerializeField] private float fuerza =1500f;
+    [SerializeField] private float delay = 0.5f;
+    private float contDelay =0;
 
     void Start()
     {
@@ -22,10 +22,21 @@ public class Disparo : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
+            if(Time.time > contDelay)
+            {
+                GameObject prefBala;
 
-            GameObject prefBala;
+                prefBala = Instantiate(bala, spawn.position, spawn.rotation);
 
-            prefBala = Instantiate(bala,spawn.position,spawn.rotation);
+                prefBala.GetComponent<Rigidbody>().AddForce(spawn.forward * fuerza);
+
+                contDelay = Time.time + delay;
+
+
+
+            }
+
+
         }
     }
 }

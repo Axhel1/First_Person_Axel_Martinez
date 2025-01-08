@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2833222820570894360}
   - component: {fileID: 1681036332408209509}
   - component: {fileID: -7628648742073052347}
-  - component: {fileID: 3004181116203319566}
+  - component: {fileID: 8057675284705346494}
   m_Layer: 0
   m_Name: LazerBullet
   m_TagString: Untagged
@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4291800702076159696}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 375.969, y: 233.549, z: -2.157}
   m_LocalScale: {x: 10.528111, y: 62.906445, z: 10.528111}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &2833222820570894360
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 0.0038203604
   m_Direction: 1
   m_Center: {x: 0, y: -0.00047786246, z: 0}
---- !u!54 &3004181116203319566
+--- !u!54 &8057675284705346494
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

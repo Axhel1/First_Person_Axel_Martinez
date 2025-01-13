@@ -22,8 +22,10 @@ public class Disparo : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if(Time.time > contDelay)
+            if(Time.time > contDelay && GameManager.Instance.municionArma > 0 )
             {
+                GameManager.Instance.municionArma--;
+
                 GameObject prefBala;
 
                 prefBala = Instantiate(bala, spawn.position, spawn.rotation);

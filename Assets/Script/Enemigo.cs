@@ -5,17 +5,20 @@ using UnityEngine.AI;
 
 public class Enemigo : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    [SerializeField]private GameObject destino;
+    [SerializeField]NavMeshAgent agent;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        agent.destination = destino.transform.position;
+
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("PBRCharacter");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        agent.destination = player.transform.position;
+
     }
 }

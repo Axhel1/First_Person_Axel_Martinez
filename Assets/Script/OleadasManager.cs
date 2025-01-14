@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class OleadasManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class OleadasManager : MonoBehaviour
     [SerializeField] private GameObject[] spawns;
     [SerializeField] private GameObject enemigo;
     [SerializeField] private int IncrementoEnemigos;
+    [SerializeField] private Text waveText;
     private int wave;
     private bool spawning;
     private int enemigosInstaciado;
@@ -25,11 +27,10 @@ public class OleadasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(spawning == false && enemigosInstaciado == gameManager.enemigoMuerto)
+        waveText.text = wave.ToString();
+        if (spawning == false && enemigosInstaciado == gameManager.enemigoMuerto)
         {
-
-
-            StartCoroutine(SpawnOleadas(IncrementoEnemigos));
+             StartCoroutine(SpawnOleadas(IncrementoEnemigos));
 
         }
     }
@@ -44,7 +45,7 @@ public class OleadasManager : MonoBehaviour
         for (int i = 0; i < contOleadas; i++) 
         {
             Debug.Log("corrutina");
-            SpawnEnemigo(wave);
+            SpawnEnemigo();
             yield return new WaitForSeconds(2);
         }
       
@@ -56,7 +57,7 @@ public class OleadasManager : MonoBehaviour
     
     }
 
-    void SpawnEnemigo(int oleada)
+    void SpawnEnemigo()
     {
         int randomSpawn = Random.Range(0, 4);
         Instantiate(enemigo, spawns[randomSpawn].transform.position, spawns[randomSpawn].transform.rotation);

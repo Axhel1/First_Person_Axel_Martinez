@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnStart : MonoBehaviour
+    
 {
     public Transform Startrespawn;
+    [SerializeField] OleadasManager oleadasManager;
     // Start is called before the first frame update
 
 
@@ -12,8 +14,9 @@ public class SpawnStart : MonoBehaviour
     {
         if (other.gameObject.CompareTag("TelePort"))
         {
-            
-            this.gameObject.transform.position = Startrespawn.transform.position;
+               
+               this.gameObject.transform.position = Startrespawn.transform.position;
+               oleadasManager.enabled = true;
         }
     }
 

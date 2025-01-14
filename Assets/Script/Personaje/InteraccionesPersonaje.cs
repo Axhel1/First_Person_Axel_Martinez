@@ -26,6 +26,16 @@ public class InteraccionesPersonaje : MonoBehaviour
             Debug.Log("municion");
             Destroy(other.gameObject);
         }
-        
+
+        if (other.gameObject.CompareTag("enemigo"))
+        {
+            GameManager.Instance.PerdidaVida(25f);
+            Debug.Log("enemigo");
+          
+        }
+
+
     }
+
+
 }

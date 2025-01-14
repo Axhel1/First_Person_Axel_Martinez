@@ -149,7 +149,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e5366e92d84cc4591b4c890c1b862b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 10
+  municion: 10
 --- !u!1 &7626618768524158127
 GameObject:
   m_ObjectHideFlags: 0

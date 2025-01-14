@@ -48576,6 +48576,9 @@ MonoBehaviour:
   municionText: {fileID: 728602277}
   municionArma: 10
   vida: 100
+  cajamunicion: {fileID: 3802923406113778121, guid: 9add2857c1daf2844ae3c4e3d56d897d,
+    type: 3}
+  cajaMunAct: 1
 --- !u!4 &1881726338
 Transform:
   m_ObjectHideFlags: 0
@@ -51310,6 +51313,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012447898}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2015629665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3750743644667958897, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_Name
+      value: DeminioLibro
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.779736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -91.71273
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804074165869662243, guid: 555dec0c0941be844bc971be84eb67d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 555dec0c0941be844bc971be84eb67d3, type: 3}
 --- !u!1 &2018222020
 GameObject:
   m_ObjectHideFlags: 0
@@ -56455,11 +56526,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoBox
       objectReference: {fileID: 0}
-    - target: {fileID: 6790582192886899324, guid: 9add2857c1daf2844ae3c4e3d56d897d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8791687591305287940, guid: 9add2857c1daf2844ae3c4e3d56d897d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58175,3 +58241,4 @@ SceneRoots:
   - {fileID: 897404260}
   - {fileID: 892161420}
   - {fileID: 921156097}
+  - {fileID: 2015629665}

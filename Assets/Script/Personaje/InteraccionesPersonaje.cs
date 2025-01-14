@@ -23,6 +23,7 @@ public class InteraccionesPersonaje : MonoBehaviour
         if (other.gameObject.CompareTag("Municion"))
         {
             GameManager.Instance.municionArma += other.gameObject.GetComponent<AMMO>().Municion;
+            GameManager.Instance.cajaMunAct = false;
             Debug.Log("municion");
             Destroy(other.gameObject);
         }

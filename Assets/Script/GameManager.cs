@@ -13,10 +13,15 @@ public class GameManager : MonoBehaviour
     public int enemigoMuerto=0;
     [SerializeField] private MicroBar healthBar;
     [SerializeField] private MicroBar staminaBar;
-    [SerializeField]public Text municionText;
+    [SerializeField] public Text municionText;
 
     [SerializeField]public int municionArma;
     [SerializeField]private float vida = 100f;
+
+    //munucion y curas
+
+    [SerializeField] GameObject cajamunicion;
+    public bool cajaMunAct = true;
 
     public static GameManager Instance { get; private set; }
 
@@ -25,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         healthBar.Initialize(vida);
         Instance = this;
-        
+      
     }
 
     // Update is called once per frame
@@ -33,6 +38,11 @@ public class GameManager : MonoBehaviour
     {
         municionText.text = municionArma.ToString();
         Muerte();
+
+        if (cajaMunAct == false)
+        {
+            StartCoroutine(RepCajaMun());
+        }
     }
 
 
@@ -51,5 +61,14 @@ public class GameManager : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator RepCajaMun() {
+
+        cajaMunAct = true;
+        yield return new WaitForSeconds(5);
+        Instantiate(cajamunicion, cajamunicion.transform.position, cajamunicion.transform.rotation);
+        
+    
     }
 }

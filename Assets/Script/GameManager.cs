@@ -16,12 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Text municionText;
 
     [SerializeField]public int municionArma;
-    [SerializeField]private float vida = 100f;
+    [SerializeField]public float vida = 100f;
 
     //munucion y curas
 
     [SerializeField] GameObject cajamunicion;
+    [SerializeField] GameObject cajaCura;
     public bool cajaMunAct = true;
+    public bool cajaCuraAct = true;
 
     public static GameManager Instance { get; private set; }
 
@@ -43,6 +45,12 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(RepCajaMun());
         }
+
+        if (cajaCuraAct == false)
+        {
+
+            StartCoroutine(RepCajaCura());
+        }
     }
 
 
@@ -52,16 +60,25 @@ public class GameManager : MonoBehaviour
         healthBar.UpdateBar (healthBar.CurrentValue-reduccionVida);
     }
 
+    public void AumentoVida(float sumaVida)
+    {
+
+        vida += sumaVida;
+        healthBar.UpdateBar(healthBar.CurrentValue + sumaVida);
+    }
+
     void Muerte()
     {
         if (vida <= 0) {
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+            SceneManager.LoadScene(1);
+
         }
 
 
     }
+
+
 
     IEnumerator RepCajaMun() {
 
@@ -70,5 +87,12 @@ public class GameManager : MonoBehaviour
         Instantiate(cajamunicion, cajamunicion.transform.position, cajamunicion.transform.rotation);
         
     
+    }
+
+    IEnumerator RepCajaCura()
+    {
+        cajaCuraAct = true;
+        yield return new WaitForSeconds(5);
+        Instantiate(cajaCura, cajaCura.transform.position, cajaCura.transform.rotation);
     }
 }

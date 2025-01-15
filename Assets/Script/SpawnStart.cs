@@ -16,6 +16,7 @@ public class SpawnStart : MonoBehaviour
         {
                
                this.gameObject.transform.position = Startrespawn.transform.position;
+
                oleadasManager.enabled = true;
         }
     }

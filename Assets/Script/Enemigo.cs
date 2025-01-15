@@ -6,14 +6,21 @@ using UnityEngine.AI;
 
 public class Enemigo : MonoBehaviour
 {
-    [SerializeField]Animator anim; 
+    
     [SerializeField]NavMeshAgent agent;
     private GameObject player;
     [SerializeField] private float vidaEnemigo =100f;
+
+    [SerializeField] Animator anim;
+    [SerializeField] Transform attackPoint;
+    [SerializeField] float attackRange = 20f;
+    [SerializeField] LayerMask playerLayer;
+
+    private bool ataque;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponentInChildren<Animator>();    
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("PBRCharacter");
     }
@@ -22,6 +29,16 @@ public class Enemigo : MonoBehaviour
     void Update()
     {
         agent.destination = player.transform.position;
+
+        if ( ataque == false)
+        {
+            
+            StartCoroutine(Ataque());
+
+        }
+
+        Debug.Log("ataque" + ataque);
+
 
     }
 
@@ -40,5 +57,35 @@ public class Enemigo : MonoBehaviour
 
 
         }
+
+        if (other.gameObject.CompareTag("Robot") && ataque == true)
+        { 
+
+            GameManager.Instance.PerdidaVida(25f);
+
+        }
+    }
+    
+
+
+    IEnumerator Ataque()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(attackPoint.position, attackRange,playerLayer);
+
+        foreach (var hits in hitColliders)
+        {
+            ataque = true;
+            anim.SetTrigger("Attack");
+            yield return new WaitForSeconds(2);
+            ataque = false;
+            
+
+        }
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }

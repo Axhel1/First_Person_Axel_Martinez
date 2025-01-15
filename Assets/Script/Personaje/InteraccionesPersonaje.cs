@@ -28,6 +28,16 @@ public class InteraccionesPersonaje : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("Cura") && GameManager.Instance.vida <100)
+        {
+            
+            GameManager.Instance.AumentoVida(other.gameObject.GetComponent<CURA>().Cura);
+            GameManager.Instance.cajaCuraAct = false;
+            Debug.Log("vida");
+            Destroy(other.gameObject);
+        }
+
+
         if (other.gameObject.CompareTag("enemigo"))
         {
             GameManager.Instance.PerdidaVida(25f);
